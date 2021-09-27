@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+body{
+    background-color: #f2f3f2;
+}
+
+#register{
+    cursor: pointer;
+    border: none;
+    background-color: #ccc;
+    border-radius: 4px;
+    color: #fff;
+    width: 100px;
+    height: 40px; 
+    border: solid 1px #ccc;
+    margin: 30px;
+}
+
+#log-in{
+    cursor: pointer;
+    border: none;
+    background-color:#599ce9;
+    border-radius: 4px;
+    color: #fff;
+    width: 100px;
+    height: 40px; 
+    border: solid 1px #599ce9;
+    margin: 30px;
+}
+.container{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 30px;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.flex-box{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 30px;
+}
+div{
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    font-weight: lighter;
+}
+img{
+    padding-right: 400px;
+}
+
+/* .ios-btn{
+    cursor: pointer;
+    border: none;
+    background-color:#A5A8B2;
+    border-radius: 4px;
+    color: #fff;
+    width: 150px;
+    height: 40px; 
+    border: solid 1px #ccc;
+    margin: 30px;
+    position: relative;
+    right: 500px;
+    bottom: 35px;
+} */
+
+p{
+    text-align: left;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    display: block;
+    color: #666;
+}
+h2{
+    text-align: left;
+    color: #000C2B;
+}
+h3{
+    color: #a8acb7;
+    margin-bottom: 41px;
+    font-size: 28px !important;
+    line-height: 43px !important;
+    position: relative;
+    right: 465px;
+    font-weight: lighter;
+    top: 20px;
+    
+}
+h2{
+    font-size: 34px !important;
+    line-height: 51px;
+    font-weight: 300;
+    margin-bottom: 13px;
+    display: block;
+    position: relative;
+    left: 80px;
+    top: 20px; 
+}
+.ios-btn{
+    background-color: rgba(165,168,178,1);
+    color: #fff !important;
+    padding: 14px 18px;
+    border: 1px solid rgba(165,168,178,1);
+    display: inline-block;
+    text-decoration: none;
+    line-height: 17px;
+    font-size: 14px;
+    font-weight: 300;
+    min-width: 158px;
+    text-align: center;
+    border-radius: 4px;
+    position: relative;
+    right: 520px;  
+}
+.invest{
+    color: #599ce9;
+}
+.banner-bg{
+   background-image: url('https://www.bitstocks.com/hubfs/CrowdCube%20Project/BackgroundDeleteV3.png');
+   background-repeat: no-repeat;
+}

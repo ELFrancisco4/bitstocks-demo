@@ -1,0 +1,18 @@
+  var module_8757531 = (function() {
+    var __hs_messages = {};
+    i18n_getmessage = function() {
+      return hs_i18n_getMessage(__hs_messages, hsVars['language'], arguments); 
+    };
+    i18n_getlanguage = function() {
+      return hsVars['language']; 
+    };
+$(window).load(function(){
+  $('.page-loader').fadeOut();
+})
+
+$(document).ready(function(){
+  $('.sticky-banner-close').on('click',function(){
+    $('.sticky-banner').fadeOut('slow');
+  })
+})
+  })();

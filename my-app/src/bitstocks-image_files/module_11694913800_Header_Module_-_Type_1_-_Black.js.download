@@ -1,0 +1,138 @@
+  var module_8801942 = (function() {
+    var __hs_messages = {};
+    i18n_getmessage = function() {
+      return hs_i18n_getMessage(__hs_messages, hsVars['language'], arguments); 
+    };
+    i18n_getlanguage = function() {
+      return hsVars['language']; 
+    };
+$.fn.ChampNavigation = function( options ) {
+  var settings = $.extend({
+    container  	: $(this),
+    breakPoint  : 768,
+    button 		: '<button class="hamburger hamburger--squeeze" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>',
+    icon   		: "-",
+  }, options);
+
+  var button = settings.button;
+  var icon = settings.icon;
+  var element = settings.container;
+  var breakPoint = settings.breakPoint;
+
+
+
+  var ChampMenu = function () {
+    if(!element.hasClass('ChampMenu')){
+      element.addClass("ChampMenu");
+      element.removeClass("RegularMenu");
+      element.before('<a href="javascript:void(0);" class="champMenu main">'+button+'</a>');
+      element.hide();
+      var childMenus = element.find('ul');
+      childMenus.hide(); 
+      childMenus.before('<a class="champMenu icon">'+icon+'</a>');
+      $(".champMenu").click(function(){
+        var mainbutton = $(this);
+        if (!mainbutton.hasClass("active")) {
+          mainbutton.addClass("active");
+          $('.header-module').addClass("active");
+        } else {
+          $('.header-module').removeClass("active");  
+          mainbutton.removeClass("active");
+
+        }
+        $(this).next('ul').slideToggle(function(){
+          if(mainbutton.hasClass('main')){
+            mainbutton.removeClass('main');
+            mainbutton.addClass('closed');
+            //mainbutton.html('<i class="fa fa-times"></i> Close');
+          } 
+          if(mainbutton.hasClass('closed')){
+            mainbutton.removeClass('closed');
+            mainbutton.addClass('main');
+            //mainbutton.html(button);
+          }	
+        });	
+        mainbutton.find("button").toggleClass("is-active");
+      });
+    }
+    $(".ChampMenu > li").each(function(i,el){ $(el).css("animation-delay", (i+1) * 0.2 + "s")})
+  }
+
+  var RegularMenu = function () {
+    element.addClass("RegularMenu");
+    element.removeClass("ChampMenu");
+    $(".champMenu").remove();
+    element.show();
+    var childMenus = element.find('ul');
+    childMenus.show();
+  }
+
+  if(window.innerWidth < breakPoint){
+    ChampMenu();	
+  } else {
+    RegularMenu();
+  }
+}  
+$(document).ready( function() {
+  $(".menu-section .hs-menu-wrapper > ul").ChampNavigation();
+
+});	
+
+$(window).on("resize", function() {
+  $(".menu-section .hs-menu-wrapper > ul").ChampNavigation();
+});
+
+$(document).mouseup(function(e) {
+  var a = $(".ChampMenu");
+  var b = $(".hamburger-inner")
+  if ((!a.is(e.target) && a.has(e.target).length === 0) || (!b.is(e.target) && b.has(e.target).length === 0) ) {
+
+    if($(".ChampMenu:visible").length > 0){
+      setTimeout(function(){
+        $(".ChampMenu").slideUp();
+        $(".hamburger.is-active").removeClass("is-active")
+        $('a.champMenu.main').removeClass("active");
+        $('.header-module').removeClass("active");
+      }, 500)
+    }
+  }
+});
+
+
+$(function() {
+  $('.header-module').each(function() {
+    var $doc = $(document),
+        $win = $(window),
+        $self = $(this)
+
+    , isHidden = false, lastScrollTop = 0
+
+    $win.on('scroll', function() {
+      var scrollTop = $doc.scrollTop()
+      var offset = scrollTop - lastScrollTop
+      lastScrollTop = scrollTop
+
+      // min-offset, min-scroll-top
+      if (offset > 10 && scrollTop > 10) {
+        if (!isHidden) {
+          $self.addClass('header-hidden')
+          isHidden = true
+        }
+      } else if (offset < -10 || scrollTop < 10) {
+        if (isHidden) {
+          $self.removeClass('header-hidden')
+          isHidden = false
+        }
+      }
+    })
+  })
+})
+
+$(window).on("scroll", function(){
+  if($(window).scrollTop() > 100){
+    $(".header-module").addClass("show-onscroll");
+  } else {
+    $(".header-module").removeClass("show-onscroll");
+  }
+})
+  })();
